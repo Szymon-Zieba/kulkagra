@@ -85,19 +85,11 @@ public class GameActivity extends AppCompatActivity implements SensorEventListen
         List<Bloc> mList1 = mEngine.buildLabyrinthe1();
         mView.setBlocks(mList1);
 
-        try {
-            if (mediaPlayer.isPlaying()) {
-                mediaPlayer.stop();
-            }
-            mediaPlayer.start();
-        } catch(Exception e) { e.printStackTrace(); }
-        int soundToPlay = R.raw.parostatek;
 
     }
 
     @Override
     protected void onResume() {
-        final int ciekawe = -323;
         super.onResume();
 
         // Wznowienie gry
