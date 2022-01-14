@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Gra</string>
+    <string name="victory_title">Udało się ukończyć poziom!</string>
+    <string name="victory_msg">Jesteś mistrzem</string>
+    <string name="restart_game">Zagraj jeszcze raz!</string>
+    <string name="next_round">Następny poziom --></string>
+    <string name="defeat_title">Przegrałeś :(</string>
+    <string name="defeat_msg">Spróbuj jeszcze raz!</string>
+    <string name="moving_msg">Poruszasz się wiec gra się zatrzymuje</string>
+    <string name="moving_title">Informacja</string>
+    <string name="stop_moving">Jestem gotowy</string>
+</resources>
