@@ -27,7 +27,7 @@ public class GameActivity extends AppCompatActivity implements SensorEventListen
     // ID dialogów
     public static final int VICTORY_DIALOG  = 0;
     public static final int DEFEAT_DIALOG   = 1;
-    public static int LEVEL = 1;
+    public static int LEVEL = 2;
 
     // Definicja wysokości obrazu
     private static final int SCREEN_HEIGHT_RATION = 143;
@@ -49,9 +49,6 @@ public class GameActivity extends AppCompatActivity implements SensorEventListen
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
-
 
 
         // Inizjalizacja sensor Managera
@@ -134,9 +131,6 @@ public class GameActivity extends AppCompatActivity implements SensorEventListen
                                 } else if(LEVEL == 3){
                                     List<Bloc> mList3= mEngine.buildLabyrinthe3();
                                     mView.setBlocks(mList3);
-                                } else if(LEVEL == 4){
-                                    List<Bloc> mList4= mEngine.buildLabyrinthe4();
-                                    mView.setBlocks(mList4);
                                 }
                                 LEVEL++;
                                 mEngine.resume();
