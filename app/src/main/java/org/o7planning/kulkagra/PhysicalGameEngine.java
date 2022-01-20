@@ -67,6 +67,8 @@ public class PhysicalGameEngine implements SensorEventListener {
             // Aktualizauj pozycje piłki
             RectF hitBox = mBall.putXAndY(x, y);
 
+            if(hitBox == null) return;
+
             for(Bloc block : mBlocks) {
                 // Stwórz nowy blok
                 RectF inter = new RectF(block.getRectangle());
@@ -251,7 +253,7 @@ public class PhysicalGameEngine implements SensorEventListener {
         mBall.setInitialRectangle(new RectF(b.getRectangle()));
         mBlocks.add(b);
 
-        mBlocks.add(new Bloc(Type.END, 8, 11));
+        mBlocks.add(new Bloc(Type.END, 2, 11));
 
         return mBlocks;
     }

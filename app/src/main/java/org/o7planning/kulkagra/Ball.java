@@ -139,6 +139,9 @@ public class Ball {
      * @see RectF
      */
     public RectF putXAndY(float pX, float pY) {
+        if(this.mWidth < 0 || this.mHeight < 0)
+            return null;
+
         mSpeedX += pX / COMPENSATOR;
         if(mSpeedX > MAX_SPEED)
             mSpeedX = MAX_SPEED;

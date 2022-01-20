@@ -3,6 +3,7 @@ package org.o7planning.kulkagra;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -10,10 +11,16 @@ import android.hardware.SensorManager;
 import android.media.MediaPlayer;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.PowerManager;
 import android.util.DisplayMetrics;
+import android.util.Log;
+import android.view.View;
 import android.view.WindowManager;
 import android.view.WindowManager.LayoutParams;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import java.util.List;
 
@@ -27,7 +34,7 @@ public class GameActivity extends AppCompatActivity implements SensorEventListen
     // ID dialogów
     public static final int VICTORY_DIALOG  = 0;
     public static final int DEFEAT_DIALOG   = 1;
-    public static int LEVEL = 2;
+    public static int LEVEL = 4;
 
     // Definicja wysokości obrazu
     private static final int SCREEN_HEIGHT_RATION = 143;
@@ -68,8 +75,6 @@ public class GameActivity extends AppCompatActivity implements SensorEventListen
 
         // Ekran początkowy
 
-
-
         Ball.RADIUS = (metrics.heightPixels - SCREEN_HEIGHT_RATION) / GraphicGameEngine.SURFACE_RATIO;
 
         // Inicjalizacja ball
@@ -77,12 +82,22 @@ public class GameActivity extends AppCompatActivity implements SensorEventListen
         mView.setBall(mBall);
         mEngine.setBall(mBall);
 
-
         // Tworzenie labiryntu
-        List<Bloc> mList1 = mEngine.buildLabyrinthe1();
-        mView.setBlocks(mList1);
+        List<Bloc> mList0 = mEngine.buildLabyrinthe0();
+        mView.setBlocks(mList0);
 
-
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(false)
+                .setMessage("Podołasz wyzwaniu?")
+                .setTitle("Rozpocznij grę")
+                .setNeutralButton("START", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        mEngine.reset();
+                        mEngine.resume();
+                    }
+                });
+        builder.show();
     }
 
     @Override
@@ -90,8 +105,7 @@ public class GameActivity extends AppCompatActivity implements SensorEventListen
         super.onResume();
 
         // Wznowienie gry
-        mEngine.resume();
-
+       // mEngine.resume();
 
         // Rejerstracja Listener'a
         mSensorManager.registerListener(this, mLuminositySensor, SensorManager.SENSOR_DELAY_NORMAL);
@@ -105,43 +119,62 @@ public class GameActivity extends AppCompatActivity implements SensorEventListen
         // Pokaż powiadomienie kiedy event zostanie uruchomiony
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-        int soundToPlay;
+        int soundToPlay = R.raw.walking;
         mEngine.stop();
 
 
         switch(id) {
             case VICTORY_DIALOG:
-                try {
-                    if (mediaPlayer.isPlaying()) {
-                        mediaPlayer.stop();
+                if(LEVEL == 4) {
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run(){
+                            Intent i = new Intent(GameActivity.this, FinishActivity.class);
+                            startActivity(i);
+                            GameActivity.this.onDestroy();
+                        }
+                    }, 1);
+                    return;
+                }
+
+                else{
+                    try {
+                        if (mediaPlayer.isPlaying()) {
+                            mediaPlayer.stop();
+                        }
+                        mediaPlayer.start();
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
-                    mediaPlayer.start();
-                } catch(Exception e) { e.printStackTrace(); }
-                soundToPlay = R.raw.win;
-                builder.setCancelable(false)
-                        .setMessage(R.string.victory_msg)
-                        .setMessage(R.string.victory_title)
-                        .setNeutralButton(R.string.next_round, new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                mEngine.reset();
-                                if (LEVEL == 2) {
-                                    List<Bloc> mList2= mEngine.buildLabyrinthe2();
-                                    mView.setBlocks(mList2);
-                                } else if(LEVEL == 3){
-                                    List<Bloc> mList3= mEngine.buildLabyrinthe3();
-                                    mView.setBlocks(mList3);
-                                }
-                                LEVEL++;
-                                mEngine.resume();
-                                try {
-                                    if (mediaPlayer.isPlaying()) {
-                                        mediaPlayer.stop();
+                    soundToPlay = R.raw.win;
+                    builder.setCancelable(false)
+                            .setMessage(R.string.victory_msg)
+                            .setMessage(R.string.victory_title)
+                            .setNeutralButton(R.string.next_round, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    mEngine.reset();
+                                    if (LEVEL == 2) {
+                                        List<Bloc> mList2 = mEngine.buildLabyrinthe2();
+                                        mView.setBlocks(mList2);
+                                    } else if (LEVEL == 3) {
+                                        List<Bloc> mList3 = mEngine.buildLabyrinthe3();
+                                        mView.setBlocks(mList3);
                                     }
-                                    mediaPlayer.start();
-                                } catch(Exception e) { e.printStackTrace(); }
-                            }
-                        });
+
+                                    LEVEL++;
+                                    mEngine.resume();
+                                    try {
+                                        if (mediaPlayer.isPlaying()) {
+                                            mediaPlayer.stop();
+                                        }
+                                        mediaPlayer.start();
+                                    } catch (Exception e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+                            });
+                }
                 break;
             case DEFEAT_DIALOG:
                 try {
@@ -172,8 +205,6 @@ public class GameActivity extends AppCompatActivity implements SensorEventListen
                 soundToPlay = R.raw.loose;
                 break;
         }
-
-
         builder.show();
         mediaPlayer = MediaPlayer.create(this, soundToPlay);
 
