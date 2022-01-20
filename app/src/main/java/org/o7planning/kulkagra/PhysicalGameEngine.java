@@ -612,6 +612,15 @@ public class PhysicalGameEngine implements SensorEventListener {
         mBlocks.add(new Bloc(Type.HOLE, 3, 13));
 
         mBlocks.add(new Bloc(Type.HOLE, 4, 0));
+        mBlocks.add(new Bloc(Type.HOLE, 4, 1));
+        mBlocks.add(new Bloc(Type.HOLE, 4, 2));
+        mBlocks.add(new Bloc(Type.HOLE, 4, 3));
+        mBlocks.add(new Bloc(Type.HOLE, 4, 4));
+        mBlocks.add(new Bloc(Type.HOLE, 4, 8));
+        mBlocks.add(new Bloc(Type.HOLE, 4, 9));
+        mBlocks.add(new Bloc(Type.HOLE, 4, 10));
+        mBlocks.add(new Bloc(Type.HOLE, 4, 11));
+        mBlocks.add(new Bloc(Type.HOLE, 4, 12));
         mBlocks.add(new Bloc(Type.HOLE, 4, 13));
 
         mBlocks.add(new Bloc(Type.HOLE, 5, 0));
@@ -621,20 +630,30 @@ public class PhysicalGameEngine implements SensorEventListener {
         mBlocks.add(new Bloc(Type.HOLE, 6, 13));
 
         mBlocks.add(new Bloc(Type.HOLE, 7, 0));
+        mBlocks.add(new Bloc(Type.HOLE, 7, 3));
+        mBlocks.add(new Bloc(Type.HOLE, 7, 4));
+        mBlocks.add(new Bloc(Type.HOLE, 7, 5));
+        mBlocks.add(new Bloc(Type.HOLE, 7, 6));
+        mBlocks.add(new Bloc(Type.HOLE, 7, 7));
+        mBlocks.add(new Bloc(Type.HOLE, 7, 8));
+        mBlocks.add(new Bloc(Type.HOLE, 7, 9));
+        mBlocks.add(new Bloc(Type.HOLE, 7, 10));
         mBlocks.add(new Bloc(Type.HOLE, 7, 13));
 
         mBlocks.add(new Bloc(Type.HOLE, 8, 0));
+        mBlocks.add(new Bloc(Type.HOLE, 8, 3));
+        mBlocks.add(new Bloc(Type.HOLE, 8, 10));
         mBlocks.add(new Bloc(Type.HOLE, 8, 13));
 
         mBlocks.add(new Bloc(Type.HOLE, 9, 0));
+        mBlocks.add(new Bloc(Type.HOLE, 9, 3));
+        mBlocks.add(new Bloc(Type.HOLE, 9, 10));
         mBlocks.add(new Bloc(Type.HOLE, 9, 13));
 
         mBlocks.add(new Bloc(Type.HOLE, 10, 0));
-
         mBlocks.add(new Bloc(Type.HOLE, 10, 13));
 
         mBlocks.add(new Bloc(Type.HOLE, 11, 0));
-
         mBlocks.add(new Bloc(Type.HOLE, 11, 13));
 
         mBlocks.add(new Bloc(Type.HOLE, 12, 0));
@@ -644,22 +663,42 @@ public class PhysicalGameEngine implements SensorEventListener {
         mBlocks.add(new Bloc(Type.HOLE, 13, 13));
 
         mBlocks.add(new Bloc(Type.HOLE, 14, 0));
+        mBlocks.add(new Bloc(Type.HOLE, 14, 3));
+        mBlocks.add(new Bloc(Type.HOLE, 14, 10));
         mBlocks.add(new Bloc(Type.HOLE, 14, 13));
 
         mBlocks.add(new Bloc(Type.HOLE, 15, 0));
+        mBlocks.add(new Bloc(Type.HOLE, 15, 3));
+        mBlocks.add(new Bloc(Type.HOLE, 15, 10));
         mBlocks.add(new Bloc(Type.HOLE, 15, 13));
 
         mBlocks.add(new Bloc(Type.HOLE, 16, 0));
+        mBlocks.add(new Bloc(Type.HOLE, 16, 3));;
+        mBlocks.add(new Bloc(Type.HOLE, 16, 4));
+        mBlocks.add(new Bloc(Type.HOLE, 16, 5));
+        mBlocks.add(new Bloc(Type.HOLE, 16, 6));
+        mBlocks.add(new Bloc(Type.HOLE, 16, 7));
+        mBlocks.add(new Bloc(Type.HOLE, 16, 8));
+        mBlocks.add(new Bloc(Type.HOLE, 16, 9));
+        mBlocks.add(new Bloc(Type.HOLE, 16, 10));
         mBlocks.add(new Bloc(Type.HOLE, 16, 13));
 
         mBlocks.add(new Bloc(Type.HOLE, 17, 0));
-        mBlocks.add(new Bloc(Type.HOLE, 17, 2));
         mBlocks.add(new Bloc(Type.HOLE, 17, 13));
 
         mBlocks.add(new Bloc(Type.HOLE, 18, 0));
         mBlocks.add(new Bloc(Type.HOLE, 18, 13));
 
         mBlocks.add(new Bloc(Type.HOLE, 19, 0));
+        mBlocks.add(new Bloc(Type.HOLE, 19, 1));
+        mBlocks.add(new Bloc(Type.HOLE, 19, 2));
+        mBlocks.add(new Bloc(Type.HOLE, 19, 3));
+        mBlocks.add(new Bloc(Type.HOLE, 19, 4));
+        mBlocks.add(new Bloc(Type.HOLE, 19, 8));
+        mBlocks.add(new Bloc(Type.HOLE, 19, 9));
+        mBlocks.add(new Bloc(Type.HOLE, 19, 10));
+        mBlocks.add(new Bloc(Type.HOLE, 19, 11));
+        mBlocks.add(new Bloc(Type.HOLE, 19, 12));
         mBlocks.add(new Bloc(Type.HOLE, 19, 13));
 
         mBlocks.add(new Bloc(Type.HOLE, 20, 0));
@@ -693,120 +732,7 @@ public class PhysicalGameEngine implements SensorEventListener {
         mBall.setInitialRectangle(new RectF(b.getRectangle()));
         mBlocks.add(b);
 
-        mBlocks.add(new Bloc(Type.END, 2, 11));
-
-        return mBlocks;
-    }
-
-    public List<Bloc> buildLabyrinthe4() {
-        mBlocks = new ArrayList<>();
-        mBlocks.add(new Bloc(Type.HOLE, 0, 0));
-        mBlocks.add(new Bloc(Type.HOLE, 0, 1));
-        mBlocks.add(new Bloc(Type.HOLE, 0, 2));
-        mBlocks.add(new Bloc(Type.HOLE, 0, 3));
-        mBlocks.add(new Bloc(Type.HOLE, 0, 4));
-        mBlocks.add(new Bloc(Type.HOLE, 0, 5));
-        mBlocks.add(new Bloc(Type.HOLE, 0, 6));
-        mBlocks.add(new Bloc(Type.HOLE, 0, 7));
-        mBlocks.add(new Bloc(Type.HOLE, 0, 8));
-        mBlocks.add(new Bloc(Type.HOLE, 0, 9));
-        mBlocks.add(new Bloc(Type.HOLE, 0, 10));
-        mBlocks.add(new Bloc(Type.HOLE, 0, 11));
-        mBlocks.add(new Bloc(Type.HOLE, 0, 12));
-        mBlocks.add(new Bloc(Type.HOLE, 0, 13));
-
-        mBlocks.add(new Bloc(Type.HOLE, 1, 0));
-        mBlocks.add(new Bloc(Type.HOLE, 1, 13));
-
-        mBlocks.add(new Bloc(Type.HOLE, 2, 0));
-        mBlocks.add(new Bloc(Type.HOLE, 2, 13));
-
-        mBlocks.add(new Bloc(Type.HOLE, 3, 0));
-        mBlocks.add(new Bloc(Type.HOLE, 3, 13));
-
-        mBlocks.add(new Bloc(Type.HOLE, 4, 0));
-        mBlocks.add(new Bloc(Type.HOLE, 4, 13));
-
-        mBlocks.add(new Bloc(Type.HOLE, 5, 0));
-        mBlocks.add(new Bloc(Type.HOLE, 5, 13));
-
-        mBlocks.add(new Bloc(Type.HOLE, 6, 0));
-        mBlocks.add(new Bloc(Type.HOLE, 6, 13));
-
-        mBlocks.add(new Bloc(Type.HOLE, 7, 0));
-        mBlocks.add(new Bloc(Type.HOLE, 7, 13));
-
-        mBlocks.add(new Bloc(Type.HOLE, 8, 0));
-        mBlocks.add(new Bloc(Type.HOLE, 8, 13));
-
-        mBlocks.add(new Bloc(Type.HOLE, 9, 0));
-        mBlocks.add(new Bloc(Type.HOLE, 9, 13));
-
-        mBlocks.add(new Bloc(Type.HOLE, 10, 0));
-
-        mBlocks.add(new Bloc(Type.HOLE, 10, 13));
-
-        mBlocks.add(new Bloc(Type.HOLE, 11, 0));
-
-        mBlocks.add(new Bloc(Type.HOLE, 11, 13));
-
-        mBlocks.add(new Bloc(Type.HOLE, 12, 0));
-        mBlocks.add(new Bloc(Type.HOLE, 12, 13));
-
-        mBlocks.add(new Bloc(Type.HOLE, 13, 0));
-        mBlocks.add(new Bloc(Type.HOLE, 13, 13));
-
-        mBlocks.add(new Bloc(Type.HOLE, 14, 0));
-        mBlocks.add(new Bloc(Type.HOLE, 14, 13));
-
-        mBlocks.add(new Bloc(Type.HOLE, 15, 0));
-        mBlocks.add(new Bloc(Type.HOLE, 15, 13));
-
-        mBlocks.add(new Bloc(Type.HOLE, 16, 0));
-        mBlocks.add(new Bloc(Type.HOLE, 16, 13));
-
-        mBlocks.add(new Bloc(Type.HOLE, 17, 0));
-        mBlocks.add(new Bloc(Type.HOLE, 17, 2));
-        mBlocks.add(new Bloc(Type.HOLE, 17, 13));
-
-        mBlocks.add(new Bloc(Type.HOLE, 18, 0));
-        mBlocks.add(new Bloc(Type.HOLE, 18, 13));
-
-        mBlocks.add(new Bloc(Type.HOLE, 19, 0));
-        mBlocks.add(new Bloc(Type.HOLE, 19, 13));
-
-        mBlocks.add(new Bloc(Type.HOLE, 20, 0));
-        mBlocks.add(new Bloc(Type.HOLE, 20, 13));
-
-        mBlocks.add(new Bloc(Type.HOLE, 21, 0));
-        mBlocks.add(new Bloc(Type.HOLE, 21, 13));
-
-        mBlocks.add(new Bloc(Type.HOLE, 22, 0));
-        mBlocks.add(new Bloc(Type.HOLE, 22, 13));
-
-        mBlocks.add(new Bloc(Type.HOLE, 23, 0));
-        mBlocks.add(new Bloc(Type.HOLE, 23, 13));
-
-        mBlocks.add(new Bloc(Type.HOLE, 23, 0));
-        mBlocks.add(new Bloc(Type.HOLE, 23, 1));
-        mBlocks.add(new Bloc(Type.HOLE, 23, 2));
-        mBlocks.add(new Bloc(Type.HOLE, 23, 3));
-        mBlocks.add(new Bloc(Type.HOLE, 23, 4));
-        mBlocks.add(new Bloc(Type.HOLE, 23, 5));
-        mBlocks.add(new Bloc(Type.HOLE, 23, 6));
-        mBlocks.add(new Bloc(Type.HOLE, 23, 7));
-        mBlocks.add(new Bloc(Type.HOLE, 23, 8));
-        mBlocks.add(new Bloc(Type.HOLE, 23, 9));
-        mBlocks.add(new Bloc(Type.HOLE, 23, 10));
-        mBlocks.add(new Bloc(Type.HOLE, 23, 11));
-        mBlocks.add(new Bloc(Type.HOLE, 23, 12));
-        mBlocks.add(new Bloc(Type.HOLE, 23, 13));
-
-        Bloc b = new Bloc(Type.START, 2, 2);
-        mBall.setInitialRectangle(new RectF(b.getRectangle()));
-        mBlocks.add(b);
-
-        mBlocks.add(new Bloc(Type.END, 4, 11));
+        mBlocks.add(new Bloc(Type.END, 12, 6));
 
         return mBlocks;
     }
