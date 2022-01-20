@@ -34,7 +34,7 @@ public class GameActivity extends AppCompatActivity implements SensorEventListen
     // ID dialogów
     public static final int VICTORY_DIALOG  = 0;
     public static final int DEFEAT_DIALOG   = 1;
-    public static int LEVEL = 4;
+    public static int LEVEL = 2;
 
     // Definicja wysokości obrazu
     private static final int SCREEN_HEIGHT_RATION = 143;
@@ -83,8 +83,8 @@ public class GameActivity extends AppCompatActivity implements SensorEventListen
         mEngine.setBall(mBall);
 
         // Tworzenie labiryntu
-        List<Bloc> mList0 = mEngine.buildLabyrinthe0();
-        mView.setBlocks(mList0);
+        List<Bloc> mList1 = mEngine.buildLabyrinthe1();
+        mView.setBlocks(mList1);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(false)
@@ -126,6 +126,10 @@ public class GameActivity extends AppCompatActivity implements SensorEventListen
         switch(id) {
             case VICTORY_DIALOG:
                 if(LEVEL == 4) {
+                    builder.setCancelable(false)
+                            .setMessage("Jesteś zwycięzcą!")
+                            .setTitle("O to nagroda ;)");
+                    builder.show();
                     new Handler().postDelayed(new Runnable() {
                         @Override
                         public void run(){
@@ -133,7 +137,7 @@ public class GameActivity extends AppCompatActivity implements SensorEventListen
                             startActivity(i);
                             GameActivity.this.onDestroy();
                         }
-                    }, 1);
+                    }, 6000);
                     return;
                 }
 
